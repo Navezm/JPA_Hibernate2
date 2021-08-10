@@ -6,7 +6,10 @@ import be.technobel.formation.iris.hibernate.model.listeners.MangaLogListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity(name = "manga")
 @EntityListeners(MangaLogListener.class)
@@ -38,6 +41,10 @@ public class Manga {
     @Column(name = "release_date", columnDefinition = "DATE")
 //    @Temporal(TemporalType.DATE)
     private LocalDate releaseDate;
+
+    // ASSOCIATION
+    @OneToMany(mappedBy = "manga")
+    private Set<Character> characterSet = new HashSet<>();
 
     public Manga() {
     }
@@ -97,8 +104,30 @@ public class Manga {
         this.category = category;
     }
 
+    public Set<Character> getCharacterSet() {
+        return characterSet;
+    }
+
+    public void setCharacterSet(Character character) {
+        this.characterSet.add(character);
+    }
+
     @Override
     public String toString() {
+        final StringBuilder sb = new StringBuilder("Manga{");
+        sb.append("id=").append(id);
+        sb.append(", title='").append(title).append('\'');
+        sb.append(", category=").append(category);
+        sb.append(", author='").append(author).append('\'');
+        sb.append(", edition=").append(edition);
+        sb.append(", bookAge=").append(getBookAge());
+        sb.append(", releaseDate=").append(releaseDate);
+        sb.append("\nCharacters=").append(characterSet.stream().map(Character::toStringWithoutAssociation).collect(Collectors.joining()));
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public String toStringWithoutAssociation() {
         final StringBuilder sb = new StringBuilder("Manga{");
         sb.append("id=").append(id);
         sb.append(", title='").append(title).append('\'');

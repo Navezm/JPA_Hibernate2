@@ -3,9 +3,13 @@ package be.technobel.formation.iris.hibernate.model.entity;
 import be.technobel.formation.iris.hibernate.model.Role;
 import be.technobel.formation.iris.hibernate.model.Weapon;
 import be.technobel.formation.iris.hibernate.model.listeners.CharacterLogListener;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Personnage d'un manga
@@ -23,9 +27,19 @@ import java.util.Objects;
 @EntityListeners(CharacterLogListener.class)
 public class Character {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "sequence-generator")
+    @GenericGenerator(
+            name = "sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @Parameter(name = "sequence_name", value = "character_sequence"),
+                    @Parameter(name = "initial_value", value = "1"),
+                    @Parameter(name = "increment_size", value = "1")
+            }
+    )
     private Long id;
 
+    @Column(length = 50)
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -38,6 +52,9 @@ public class Character {
             @AttributeOverride(name = "magical", column = @Column(name = "weapon_magical"))
     })
     private Weapon weapon;
+
+    @ManyToOne
+    private Manga manga;
 
     public Character() {
     }
@@ -80,8 +97,27 @@ public class Character {
         this.weapon = weapon;
     }
 
+    public Manga getManga() {
+        return manga;
+    }
+
+    public void setManga(Manga manga) {
+        this.manga = manga;
+    }
+
     @Override
     public String toString() {
+        final StringBuilder sb = new StringBuilder("Character{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", role=").append(role);
+        sb.append(", weapon=").append(weapon);
+        sb.append(", manga=").append(manga == null ? null : Stream.of(manga).map(Manga::toStringWithoutAssociation).collect(Collectors.joining()));
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public String toStringWithoutAssociation() {
         final StringBuilder sb = new StringBuilder("Character{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');

@@ -43,4 +43,14 @@ public class Weapon {
     public void setMagical(boolean magical) {
         this.magical = magical;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Weapon{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", material='").append(material).append('\'');
+        sb.append(", magical=").append(magical);
+        sb.append('}');
+        return sb.toString();
+    }
 }

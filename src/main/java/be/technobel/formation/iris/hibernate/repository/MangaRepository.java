@@ -1,10 +1,10 @@
 package be.technobel.formation.iris.hibernate.repository;
 
 import be.technobel.formation.iris.hibernate.model.Categories;
+import be.technobel.formation.iris.hibernate.model.entity.Character;
 import be.technobel.formation.iris.hibernate.model.entity.Manga;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NamedQuery;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -76,6 +76,16 @@ public class MangaRepository extends AbstractRepository<Long, Manga> {
         if (toRemove != null) {
             getTransaction().begin();
             em.remove(toRemove);
+            getTransaction().commit();
+        }
+    }
+
+    public void addCharacter(Long id, Character character) {
+        Manga toUpdate = findOneById(id);
+        if (toUpdate != null) {
+            getTransaction().begin();
+            toUpdate.setCharacterSet(character);
+            character.setManga(toUpdate);
             getTransaction().commit();
         }
     }
