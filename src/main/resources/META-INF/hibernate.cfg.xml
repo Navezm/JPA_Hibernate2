@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
 
-        <property name="connection.url">jdbc:postgres://localhost:5432/DBSlide</property>
+        <property name="connection.url">jdbc:postgres://localhost:5432/dbBxFormation</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">123456</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
