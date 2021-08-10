@@ -1,7 +1,11 @@
 package be.technobel.formation.iris.hibernate;
 
 import be.technobel.formation.iris.hibernate.model.Categories;
+import be.technobel.formation.iris.hibernate.model.Role;
+import be.technobel.formation.iris.hibernate.model.Weapon;
+import be.technobel.formation.iris.hibernate.model.entity.Character;
 import be.technobel.formation.iris.hibernate.model.entity.Manga;
+import be.technobel.formation.iris.hibernate.repository.CharacterRepository;
 import be.technobel.formation.iris.hibernate.repository.MangaRepository;
 import be.technobel.formation.iris.hibernate.service.ServiceLocator;
 
@@ -15,7 +19,18 @@ public class Main {
         serviceLocator.initRepositories();
 
         MangaRepository mangaRepository = serviceLocator.getRepository(MangaRepository.class);
-        mangaRepository.insert(new Manga("Bleach", Categories.SHONEN, "SOT", LocalDate.of(2005, 6, 13)));
+        mangaRepository.insert(new Manga("One Piece", Categories.HEROIC, "Oda", null));
+
+//        mangaRepository.findAll().forEach(System.out::println);
+//        System.out.println(mangaRepository.findOneById(3L));
+//        System.out.println(mangaRepository.findAllByCategory(Categories.HEROIC));
+
+//        mangaRepository.update(2L, new Manga("Soul Eater", Categories.HEROIC, "STI", LocalDate.of(1999, 3,4)));
+        System.out.println(mangaRepository.findOneById(2L));
+
+        CharacterRepository characterRepository = serviceLocator.getRepository(CharacterRepository.class);
+
+        characterRepository.insert(new Character("Law", Role.PRINCIPAL, new Weapon("Sword", "Metal", false)));
 
     }
 }

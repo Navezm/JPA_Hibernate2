@@ -1,6 +1,7 @@
 package be.technobel.formation.iris.hibernate.model.entity;
 
 import be.technobel.formation.iris.hibernate.model.Categories;
+import be.technobel.formation.iris.hibernate.model.Edition;
 import be.technobel.formation.iris.hibernate.model.listeners.MangaLogListener;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.Objects;
 
 @Entity(name = "manga")
 @EntityListeners(MangaLogListener.class)
+@NamedQuery(name = "Manga.findByCategory", query = "SELECT m FROM manga m WHERE m.category LIKE :category")
 public class Manga {
 
     @Id
@@ -22,6 +24,13 @@ public class Manga {
 
     @Basic()
     private String author;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "edition_name")),
+            @AttributeOverride(name = "locationPlace", column = @Column(name = "edition_location"))
+    })
+    private Edition edition;
 
     @Transient  // Permet à ce que cette donnée ne soit pas insérée dans la table
     private int bookAge;
@@ -37,7 +46,11 @@ public class Manga {
         this.title = title;
         this.category = category;
         this.author = author;
-        this.releaseDate = releaseDate;
+        if (releaseDate == null) {
+            this.releaseDate = LocalDate.now();
+        } else {
+            this.releaseDate = releaseDate;
+        }
     }
 
     public Long getId() {
@@ -89,7 +102,10 @@ public class Manga {
         final StringBuilder sb = new StringBuilder("Manga{");
         sb.append("id=").append(id);
         sb.append(", title='").append(title).append('\'');
+        sb.append(", category=").append(category);
         sb.append(", author='").append(author).append('\'');
+        sb.append(", edition=").append(edition);
+        sb.append(", bookAge=").append(getBookAge());
         sb.append(", releaseDate=").append(releaseDate);
         sb.append('}');
         return sb.toString();
@@ -100,11 +116,11 @@ public class Manga {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Manga manga = (Manga) o;
-        return Objects.equals(id, manga.id) && Objects.equals(title, manga.title) && Objects.equals(author, manga.author) && Objects.equals(releaseDate, manga.releaseDate);
+        return bookAge == manga.bookAge && Objects.equals(id, manga.id) && Objects.equals(title, manga.title) && category == manga.category && Objects.equals(author, manga.author) && Objects.equals(edition, manga.edition) && Objects.equals(releaseDate, manga.releaseDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, author, releaseDate);
+        return Objects.hash(id, title, category, author, edition, bookAge, releaseDate);
     }
 }
