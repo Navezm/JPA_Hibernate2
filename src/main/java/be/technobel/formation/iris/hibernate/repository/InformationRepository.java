@@ -20,7 +20,7 @@ public class InformationRepository extends AbstractRepository<Long, Information>
 
     @Override
     public Information findOneById(Long id) {
-        TypedQuery<Information> typedQuery = em.createQuery("SELECT i FROM Information i WHERE id = :id", Information.class);
+        TypedQuery<Information> typedQuery = em.createQuery("SELECT i FROM Information i WHERE i.id = :id", Information.class);
         typedQuery.setParameter("id", id);
         return typedQuery.getSingleResult();
     }

@@ -57,6 +57,7 @@ public class CharacterRepository extends AbstractRepository<Long, Character> {
         if (toUpdate != null) {
             getTransaction().begin();
             toUpdate.setManga(manga);
+            manga.setCharacterSet(toUpdate);
             em.merge(toUpdate);
             getTransaction().commit();
         }

@@ -7,9 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity(name = "manga")
@@ -35,9 +33,6 @@ public class Manga {
     @Enumerated(EnumType.STRING)
     private Categories category;
 
-    @Basic()
-    private String author;
-
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "name", column = @Column(name = "edition_name")),
@@ -56,13 +51,15 @@ public class Manga {
     @OneToMany(mappedBy = "manga", fetch = FetchType.LAZY)
     private Set<Character> characterSet = new HashSet<>();
 
+    @ManyToMany(mappedBy = "mangas")
+    private List<Author> authors = new ArrayList<>();
+
     public Manga() {
     }
 
-    public Manga(String title, Categories category, String author, LocalDate releaseDate){
+    public Manga(String title, Categories category, LocalDate releaseDate){
         this.title = title;
         this.category = category;
-        this.author = author;
         if (releaseDate == null) {
             this.releaseDate = LocalDate.now();
         } else {
@@ -84,14 +81,6 @@ public class Manga {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public LocalDate getReleaseDate() {
@@ -122,17 +111,25 @@ public class Manga {
         this.characterSet.add(character);
     }
 
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Author author) {
+        this.authors.add(author);
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Manga{");
         sb.append("id=").append(id);
         sb.append(", title='").append(title).append('\'');
         sb.append(", category=").append(category);
-        sb.append(", author='").append(author).append('\'');
         sb.append(", edition=").append(edition);
         sb.append(", bookAge=").append(getBookAge());
         sb.append(", releaseDate=").append(releaseDate);
-        sb.append("\nCharacters=").append(characterSet.stream().map(Character::toStringWithoutAssociation).collect(Collectors.joining()));
+        sb.append("\nCharacters=").append(characterSet == null ? null : characterSet.stream().map(Character::toStringWithoutAssociation).collect(Collectors.joining()));
+        sb.append("\nAuthors=").append(authors == null ? null : authors.stream().map(Author::toStringWithoutAssociation).collect(Collectors.joining()));
         sb.append('}');
         return sb.toString();
     }
@@ -142,7 +139,6 @@ public class Manga {
         sb.append("id=").append(id);
         sb.append(", title='").append(title).append('\'');
         sb.append(", category=").append(category);
-        sb.append(", author='").append(author).append('\'');
         sb.append(", edition=").append(edition);
         sb.append(", bookAge=").append(getBookAge());
         sb.append(", releaseDate=").append(releaseDate);
@@ -155,11 +151,11 @@ public class Manga {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Manga manga = (Manga) o;
-        return bookAge == manga.bookAge && Objects.equals(id, manga.id) && Objects.equals(title, manga.title) && category == manga.category && Objects.equals(author, manga.author) && Objects.equals(edition, manga.edition) && Objects.equals(releaseDate, manga.releaseDate);
+        return bookAge == manga.bookAge && Objects.equals(id, manga.id) && Objects.equals(title, manga.title) && category == manga.category && Objects.equals(edition, manga.edition) && Objects.equals(releaseDate, manga.releaseDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, category, author, edition, bookAge, releaseDate);
+        return Objects.hash(id, title, category, edition, bookAge, releaseDate);
     }
 }
