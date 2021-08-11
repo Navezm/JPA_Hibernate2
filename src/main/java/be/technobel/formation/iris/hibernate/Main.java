@@ -20,6 +20,7 @@ public class Main {
 
         MangaRepository mangaRepository = serviceLocator.getRepository(MangaRepository.class);
 //        mangaRepository.insert(new Manga("One Piece", Categories.HEROIC, "Oda", null));
+//        mangaRepository.insert(new Manga("One", Categories.HEROIC, "Oda", null));
 
 //        mangaRepository.findAll().forEach(System.out::println);
 //        System.out.println(mangaRepository.findOneById(3L));
@@ -38,11 +39,14 @@ public class Main {
 //        characterRepository.remove(18L);
 //        mangaRepository.findOneById(3L).setCharacterSet();
 
-        mangaRepository.addCharacter(3L, characterRepository.findOneById(1L));
-
+        mangaRepository.addCharacter(1L, characterRepository.findOneById(1L));
+        mangaRepository.addCharacter(2L, characterRepository.findOneById(2L));
+//
         mangaRepository.findAll().forEach(System.out::println);
-
+//
         characterRepository.findAll().forEach(System.out::println);
+
+
 
 
     }

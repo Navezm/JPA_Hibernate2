@@ -784,7 +784,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <IntrospectionStateNumber>686</IntrospectionStateNumber>
+      <IntrospectionStateNumber>776</IntrospectionStateNumber>
       <StartupTime>1626762906</StartupTime>
     </root>
     <database id="2" parent="1" name="DBSlide">
@@ -804,7 +804,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>687</IntrospectionStateNumber>
+      <IntrospectionStateNumber>777</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="4" parent="1" name="java_part2">
@@ -878,7 +878,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>687</IntrospectionStateNumber>
+      <IntrospectionStateNumber>777</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="3" name="plpgsql">
@@ -980,75 +980,75 @@ false Zulu
       <HandlerId>334</HandlerId>
     </access-method>
     <sequence id="32" parent="19" name="character_sequence">
-      <ObjectId>16867</ObjectId>
+      <ObjectId>16962</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>667</StateNumber>
+      <StateNumber>768</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="33" parent="19" name="hibernate_sequence">
-      <ObjectId>16857</ObjectId>
+    <sequence id="33" parent="19" name="manga_sequence">
+      <ObjectId>16964</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>623</StateNumber>
+      <StateNumber>769</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <table id="34" parent="19" name="character">
-      <ObjectId>16869</ObjectId>
+      <ObjectId>16946</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>682</StateNumber>
+      <StateNumber>770</StateNumber>
       <AccessMethodId>2</AccessMethodId>
     </table>
     <table id="35" parent="19" name="manga">
-      <ObjectId>16849</ObjectId>
+      <ObjectId>16954</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>683</StateNumber>
+      <StateNumber>770</StateNumber>
       <AccessMethodId>2</AccessMethodId>
     </table>
-    <table id="36" parent="19" name="manga_character">
-      <ObjectId>16877</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>682</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-    </table>
-    <column id="37" parent="34" name="id">
+    <column id="36" parent="34" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>672</StateNumber>
+      <StateNumber>766</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="38" parent="34" name="name">
+    <column id="37" parent="34" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
-      <StateNumber>672</StateNumber>
+      <StateNumber>766</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="39" parent="34" name="role">
+    <column id="38" parent="34" name="role">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>672</StateNumber>
+      <StateNumber>766</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="40" parent="34" name="weapon_magical">
+    <column id="39" parent="34" name="weapon_magical">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>672</StateNumber>
+      <StateNumber>766</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="41" parent="34" name="weapon_material">
+    <column id="40" parent="34" name="weapon_material">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>672</StateNumber>
+      <StateNumber>766</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="34" name="weapon_name">
+    <column id="41" parent="34" name="weapon_name">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>672</StateNumber>
+      <StateNumber>766</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+    <column id="42" parent="34" name="manga_id">
+      <Position>7</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>766</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
     <index id="43" parent="34" name="character_pkey">
-      <ObjectId>16875</ObjectId>
-      <StateNumber>672</StateNumber>
+      <ObjectId>16952</ObjectId>
+      <StateNumber>766</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1057,139 +1057,81 @@ false Zulu
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="44" parent="34" name="character_pkey">
-      <ObjectId>16876</ObjectId>
-      <StateNumber>672</StateNumber>
+      <ObjectId>16953</ObjectId>
+      <StateNumber>766</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>character_pkey</UnderlyingIndexName>
     </key>
-    <column id="45" parent="35" name="id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>622</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="46" parent="35" name="author">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>622</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="47" parent="35" name="category">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>622</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="48" parent="35" name="release_date">
-      <Position>4</Position>
-      <DataType>date|0s</DataType>
-      <StateNumber>622</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="49" parent="35" name="title">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>622</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="50" parent="35" name="edition_name">
-      <Position>7</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>634</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="51" parent="35" name="edition_location">
-      <Position>8</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>636</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="52" parent="35" name="manga_pkey">
-      <ObjectId>16855</ObjectId>
-      <StateNumber>622</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <CollationIds>0</CollationIds>
-      <ClassIds>3124</ClassIds>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="53" parent="35" name="manga_pkey">
-      <ObjectId>16856</ObjectId>
-      <StateNumber>622</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>manga_pkey</UnderlyingIndexName>
-    </key>
-    <column id="54" parent="36" name="manga_id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>679</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="55" parent="36" name="characterset_id">
-      <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>679</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <index id="56" parent="36" name="manga_character_pkey">
-      <ObjectId>16880</ObjectId>
-      <StateNumber>679</StateNumber>
-      <ColNames>manga_id
-characterset_id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <CollationIds>0,0</CollationIds>
-      <ClassIds>3124,3124</ClassIds>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="57" parent="36" name="uk_nq18n6rg3oosi5n6pop2ie2ii">
-      <ObjectId>16882</ObjectId>
-      <StateNumber>681</StateNumber>
-      <ColNames>characterset_id</ColNames>
-      <Unique>1</Unique>
-      <CollationIds>0</CollationIds>
-      <ClassIds>3124</ClassIds>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="58" parent="36" name="manga_character_pkey">
-      <ObjectId>16881</ObjectId>
-      <StateNumber>679</StateNumber>
-      <ColNames>manga_id
-characterset_id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>manga_character_pkey</UnderlyingIndexName>
-    </key>
-    <key id="59" parent="36" name="uk_nq18n6rg3oosi5n6pop2ie2ii">
-      <ObjectId>16883</ObjectId>
-      <StateNumber>681</StateNumber>
-      <ColNames>characterset_id</ColNames>
-      <UnderlyingIndexName>uk_nq18n6rg3oosi5n6pop2ie2ii</UnderlyingIndexName>
-    </key>
-    <foreign-key id="60" parent="36" name="fk2kir1h4j7933fjbi1scmc3mo5">
-      <ObjectId>16889</ObjectId>
-      <StateNumber>683</StateNumber>
+    <foreign-key id="45" parent="34" name="fkfw24oxcuk21d58lf2kvdux214">
+      <ObjectId>16966</ObjectId>
+      <StateNumber>770</StateNumber>
       <ColNames>manga_id</ColNames>
-      <RefTableId>16849</RefTableId>
+      <RefTableId>16954</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>manga</RefTableName>
       <RefKeyName>manga_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="61" parent="36" name="fkb3un14m1d4i6dif03muplyr8b">
-      <ObjectId>16884</ObjectId>
-      <StateNumber>682</StateNumber>
-      <ColNames>characterset_id</ColNames>
-      <RefTableId>16869</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>character</RefTableName>
-      <RefKeyName>character_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
+    <column id="46" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>767</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="47" parent="35" name="author">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>767</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="48" parent="35" name="category">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>767</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="49" parent="35" name="edition_location">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>767</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="50" parent="35" name="edition_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>767</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="51" parent="35" name="release_date">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>767</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="52" parent="35" name="title">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>767</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="53" parent="35" name="manga_pkey">
+      <ObjectId>16960</ObjectId>
+      <StateNumber>767</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <CollationIds>0</CollationIds>
+      <ClassIds>3124</ClassIds>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="54" parent="35" name="manga_pkey">
+      <ObjectId>16961</ObjectId>
+      <StateNumber>767</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>manga_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

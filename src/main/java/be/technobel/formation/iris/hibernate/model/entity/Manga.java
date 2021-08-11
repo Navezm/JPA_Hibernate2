@@ -3,6 +3,7 @@ package be.technobel.formation.iris.hibernate.model.entity;
 import be.technobel.formation.iris.hibernate.model.Categories;
 import be.technobel.formation.iris.hibernate.model.Edition;
 import be.technobel.formation.iris.hibernate.model.listeners.MangaLogListener;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -17,7 +18,16 @@ import java.util.stream.Collectors;
 public class Manga {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "sequence-generator2")
+    @GenericGenerator(
+            name = "sequence-generator2",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "manga_sequence"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
     private Long id;
 
     private String title;
