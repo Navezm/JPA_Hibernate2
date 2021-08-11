@@ -1,7 +1,7 @@
 package be.technobel.formation.iris.hibernate.model.entity;
 
-import be.technobel.formation.iris.hibernate.model.Categories;
-import be.technobel.formation.iris.hibernate.model.Edition;
+import be.technobel.formation.iris.hibernate.model.enums.Categories;
+import be.technobel.formation.iris.hibernate.model.embedded.Edition;
 import be.technobel.formation.iris.hibernate.model.listeners.MangaLogListener;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -53,7 +53,7 @@ public class Manga {
     private LocalDate releaseDate;
 
     // ASSOCIATION
-    @OneToMany(mappedBy = "manga")
+    @OneToMany(mappedBy = "manga", fetch = FetchType.LAZY)
     private Set<Character> characterSet = new HashSet<>();
 
     public Manga() {

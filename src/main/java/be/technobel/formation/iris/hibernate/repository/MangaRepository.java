@@ -1,7 +1,6 @@
 package be.technobel.formation.iris.hibernate.repository;
 
-import be.technobel.formation.iris.hibernate.model.Categories;
-import be.technobel.formation.iris.hibernate.model.entity.Character;
+import be.technobel.formation.iris.hibernate.model.enums.Categories;
 import be.technobel.formation.iris.hibernate.model.entity.Manga;
 
 import javax.persistence.EntityManagerFactory;
@@ -80,13 +79,13 @@ public class MangaRepository extends AbstractRepository<Long, Manga> {
         }
     }
 
-    public void addCharacter(Long id, Character character) {
-        Manga toUpdate = findOneById(id);
-        if (toUpdate != null) {
-            getTransaction().begin();
-            toUpdate.setCharacterSet(character);
-            character.setManga(toUpdate);
-            getTransaction().commit();
-        }
-    }
+//    public void addCharacter(Long id, Character character) {
+//        Manga toUpdate = findOneById(id);
+//        if (toUpdate != null) {
+//            getTransaction().begin();
+//            toUpdate.setCharacterSet(character);
+//            character.setManga(toUpdate);
+//            getTransaction().commit();
+//        }
+//    }
 }

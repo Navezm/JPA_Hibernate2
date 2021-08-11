@@ -1,16 +1,10 @@
 package be.technobel.formation.iris.hibernate;
 
-import be.technobel.formation.iris.hibernate.model.Categories;
-import be.technobel.formation.iris.hibernate.model.Role;
-import be.technobel.formation.iris.hibernate.model.Weapon;
-import be.technobel.formation.iris.hibernate.model.entity.Character;
-import be.technobel.formation.iris.hibernate.model.entity.Manga;
 import be.technobel.formation.iris.hibernate.repository.CharacterRepository;
 import be.technobel.formation.iris.hibernate.repository.MangaRepository;
 import be.technobel.formation.iris.hibernate.service.ServiceLocator;
 
 import java.lang.reflect.InvocationTargetException;
-import java.time.LocalDate;
 
 public class Main {
 
@@ -39,15 +33,11 @@ public class Main {
 //        characterRepository.remove(18L);
 //        mangaRepository.findOneById(3L).setCharacterSet();
 
-        mangaRepository.addCharacter(1L, characterRepository.findOneById(1L));
-        mangaRepository.addCharacter(2L, characterRepository.findOneById(2L));
+//        characterRepository.addManga(1L, mangaRepository.findOneById(1L));
 //
         mangaRepository.findAll().forEach(System.out::println);
 //
         characterRepository.findAll().forEach(System.out::println);
-
-
-
 
     }
 }

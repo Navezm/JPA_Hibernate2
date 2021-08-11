@@ -1,6 +1,7 @@
 package be.technobel.formation.iris.hibernate.repository;
 
 import be.technobel.formation.iris.hibernate.model.entity.Character;
+import be.technobel.formation.iris.hibernate.model.entity.Manga;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
@@ -46,6 +47,16 @@ public class CharacterRepository extends AbstractRepository<Long, Character> {
         if (toRemove != null) {
             getTransaction().begin();
             em.remove(toRemove);
+            getTransaction().commit();
+        }
+    }
+
+    public void addManga(Long id, Manga manga) {
+        Character toUpdate = findOneById(id);
+        if (toUpdate != null) {
+            getTransaction().begin();
+            toUpdate.setManga(manga);
+            em.merge(toUpdate);
             getTransaction().commit();
         }
     }

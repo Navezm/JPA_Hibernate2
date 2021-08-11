@@ -1,7 +1,7 @@
 package be.technobel.formation.iris.hibernate.model.entity;
 
-import be.technobel.formation.iris.hibernate.model.Role;
-import be.technobel.formation.iris.hibernate.model.Weapon;
+import be.technobel.formation.iris.hibernate.model.enums.Role;
+import be.technobel.formation.iris.hibernate.model.embedded.Weapon;
 import be.technobel.formation.iris.hibernate.model.listeners.CharacterLogListener;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -54,6 +54,7 @@ public class Character {
     private Weapon weapon;
 
     @ManyToOne
+    @JoinColumn(name = "manga_id") // Facultatif
     private Manga manga;
 
     public Character() {

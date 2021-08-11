@@ -1,4 +1,4 @@
-package be.technobel.formation.iris.hibernate.model;
+package be.technobel.formation.iris.hibernate.model.embedded;
 
 import javax.persistence.Embeddable;
 
