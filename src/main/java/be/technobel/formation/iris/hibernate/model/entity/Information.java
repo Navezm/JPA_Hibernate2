@@ -1,10 +1,13 @@
 package be.technobel.formation.iris.hibernate.model.entity;
 
+import be.technobel.formation.iris.hibernate.model.listeners.AbstractLogListener;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+@EntityListeners(AbstractLogListener.class)
 public class Information {
 
     @Id
