@@ -53,9 +53,13 @@ public class Character {
     })
     private Weapon weapon;
 
+    // ASSOCIATION
     @ManyToOne
     @JoinColumn(name = "manga_id") // Facultatif
     private Manga manga;
+
+    @OneToOne()
+    private Information information;
 
     public Character() {
     }
@@ -106,6 +110,14 @@ public class Character {
         this.manga = manga;
     }
 
+    public Information getInformation() {
+        return information;
+    }
+
+    public void setInformation(Information information) {
+        this.information = information;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Character{");
@@ -114,6 +126,7 @@ public class Character {
         sb.append(", role=").append(role);
         sb.append(", weapon=").append(weapon);
         sb.append(", manga=").append(manga == null ? null : Stream.of(manga).map(Manga::toStringWithoutAssociation).collect(Collectors.joining()));
+        sb.append(", information=").append(information);
         sb.append('}');
         return sb.toString();
     }
@@ -124,6 +137,7 @@ public class Character {
         sb.append(", name='").append(name).append('\'');
         sb.append(", role=").append(role);
         sb.append(", weapon=").append(weapon);
+        sb.append(", information=").append(information);
         sb.append('}');
         return sb.toString();
     }
