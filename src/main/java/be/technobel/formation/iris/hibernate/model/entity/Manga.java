@@ -119,6 +119,14 @@ public class Manga {
         this.authors.add(author);
     }
 
+    public Edition getEdition() {
+        return edition;
+    }
+
+    public void setEdition(Edition edition) {
+        this.edition = edition;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Manga{");

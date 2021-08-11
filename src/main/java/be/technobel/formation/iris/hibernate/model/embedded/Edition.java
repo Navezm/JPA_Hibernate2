@@ -1,5 +1,8 @@
 package be.technobel.formation.iris.hibernate.model.embedded;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Embeddable;
 
 @Embeddable

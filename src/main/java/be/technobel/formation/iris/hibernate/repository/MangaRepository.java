@@ -1,5 +1,7 @@
 package be.technobel.formation.iris.hibernate.repository;
 
+import be.technobel.formation.iris.hibernate.mapper.Mapper;
+import be.technobel.formation.iris.hibernate.model.dto.MangaDTO;
 import be.technobel.formation.iris.hibernate.model.enums.Categories;
 import be.technobel.formation.iris.hibernate.model.entity.Manga;
 
@@ -10,6 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class MangaRepository extends AbstractRepository<Long, Manga> {
@@ -24,8 +27,16 @@ public class MangaRepository extends AbstractRepository<Long, Manga> {
         Query jpqlQuery = em.createQuery("SELECT m FROM manga m");
         // TypedQuery
         TypedQuery<Manga> typedQuery = em.createQuery("SELECT m FROM manga m", Manga.class);
-
         return typedQuery.getResultList();
+    }
+
+    public List<MangaDTO> findAllDTO() {
+        TypedQuery<Manga> typedQuery = em.createQuery("SELECT m FROM manga m", Manga.class);
+
+        return typedQuery.getResultList()
+                .stream()
+                .map(Mapper::toMangaDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

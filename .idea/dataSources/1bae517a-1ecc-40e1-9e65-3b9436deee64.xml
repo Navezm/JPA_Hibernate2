@@ -784,7 +784,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <IntrospectionStateNumber>999</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1015</IntrospectionStateNumber>
       <StartupTime>1626762906</StartupTime>
     </root>
     <database id="2" parent="1" name="DBSlide">
@@ -804,7 +804,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1000</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1016</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|17223|17225|1
 sequence|table|17245|17247|1
@@ -881,7 +881,7 @@ sequence|table|17245|17247|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1000</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1016</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="3" name="plpgsql">
@@ -1024,19 +1024,31 @@ sequence|table|17245|17247|1
       <StateNumber>987</StateNumber>
       <AccessMethodId>2</AccessMethodId>
     </table>
-    <table id="39" parent="19" name="information">
+    <table id="39" parent="19" name="employee">
+      <ObjectId>17286</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1006</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+    </table>
+    <table id="40" parent="19" name="information">
       <ObjectId>17247</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>987</StateNumber>
       <AccessMethodId>2</AccessMethodId>
     </table>
-    <table id="40" parent="19" name="manga">
+    <table id="41" parent="19" name="manga">
       <ObjectId>17253</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>985</StateNumber>
       <AccessMethodId>2</AccessMethodId>
     </table>
-    <column id="41" parent="36" name="id">
+    <table id="42" parent="19" name="product">
+      <ObjectId>17294</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1013</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+    </table>
+    <column id="43" parent="36" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1044,19 +1056,19 @@ sequence|table|17245|17247|1
       <DefaultExpression>nextval(&apos;author_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="42" parent="36" name="firstname">
+    <column id="44" parent="36" name="firstname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>978</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="36" name="lastname">
+    <column id="45" parent="36" name="lastname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>978</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="44" parent="36" name="author_pkey">
+    <index id="46" parent="36" name="author_pkey">
       <ObjectId>17232</ObjectId>
       <StateNumber>978</StateNumber>
       <ColNames>id</ColNames>
@@ -1066,28 +1078,28 @@ sequence|table|17245|17247|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="45" parent="36" name="author_pkey">
+    <key id="47" parent="36" name="author_pkey">
       <ObjectId>17233</ObjectId>
       <StateNumber>978</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>author_pkey</UnderlyingIndexName>
     </key>
-    <column id="46" parent="37" name="authors_id">
+    <column id="48" parent="37" name="authors_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>979</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="47" parent="37" name="mangas_id">
+    <column id="49" parent="37" name="mangas_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>979</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="48" parent="37" name="fk30rdg6xtqy4144p9pfdwjywp6">
+    <foreign-key id="50" parent="37" name="fk30rdg6xtqy4144p9pfdwjywp6">
       <ObjectId>17270</ObjectId>
       <StateNumber>986</StateNumber>
       <ColNames>authors_id</ColNames>
@@ -1097,7 +1109,7 @@ sequence|table|17245|17247|1
       <RefKeyName>author_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="49" parent="37" name="fk5mvmrt4hcu3fl54c271kqrudb">
+    <foreign-key id="51" parent="37" name="fk5mvmrt4hcu3fl54c271kqrudb">
       <ObjectId>17265</ObjectId>
       <StateNumber>985</StateNumber>
       <ColNames>mangas_id</ColNames>
@@ -1107,56 +1119,56 @@ sequence|table|17245|17247|1
       <RefKeyName>manga_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="50" parent="38" name="id">
+    <column id="52" parent="38" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>980</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="51" parent="38" name="name">
+    <column id="53" parent="38" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="52" parent="38" name="role">
+    <column id="54" parent="38" name="role">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="53" parent="38" name="weapon_magical">
+    <column id="55" parent="38" name="weapon_magical">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="54" parent="38" name="weapon_material">
+    <column id="56" parent="38" name="weapon_material">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="55" parent="38" name="weapon_name">
+    <column id="57" parent="38" name="weapon_name">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="56" parent="38" name="information_id">
+    <column id="58" parent="38" name="information_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="57" parent="38" name="manga_id">
+    <column id="59" parent="38" name="manga_id">
       <Position>8</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>980</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="58" parent="38" name="character_pkey">
+    <index id="60" parent="38" name="character_pkey">
       <ObjectId>17243</ObjectId>
       <StateNumber>980</StateNumber>
       <ColNames>id</ColNames>
@@ -1166,14 +1178,14 @@ sequence|table|17245|17247|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="59" parent="38" name="character_pkey">
+    <key id="61" parent="38" name="character_pkey">
       <ObjectId>17244</ObjectId>
       <StateNumber>980</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>character_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="60" parent="38" name="fk8b1dm72945mghwi54j49flue9">
+    <foreign-key id="62" parent="38" name="fk8b1dm72945mghwi54j49flue9">
       <ObjectId>17275</ObjectId>
       <StateNumber>987</StateNumber>
       <ColNames>information_id</ColNames>
@@ -1183,7 +1195,7 @@ sequence|table|17245|17247|1
       <RefKeyName>information_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="61" parent="38" name="fkfw24oxcuk21d58lf2kvdux214">
+    <foreign-key id="63" parent="38" name="fkfw24oxcuk21d58lf2kvdux214">
       <ObjectId>17280</ObjectId>
       <StateNumber>988</StateNumber>
       <ColNames>manga_id</ColNames>
@@ -1193,7 +1205,43 @@ sequence|table|17245|17247|1
       <RefKeyName>manga_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="62" parent="39" name="id">
+    <column id="64" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1006</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="65" parent="39" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1006</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="66" parent="39" name="company">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1006</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="67" parent="39" name="employee_pkey">
+      <ObjectId>17292</ObjectId>
+      <StateNumber>1006</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <CollationIds>0</CollationIds>
+      <ClassIds>3124</ClassIds>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="68" parent="39" name="employee_pkey">
+      <ObjectId>17293</ObjectId>
+      <StateNumber>1006</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>employee_pkey</UnderlyingIndexName>
+    </key>
+    <column id="69" parent="40" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1201,27 +1249,27 @@ sequence|table|17245|17247|1
       <DefaultExpression>nextval(&apos;information_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="63" parent="39" name="birth_date">
+    <column id="70" parent="40" name="birth_date">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <StateNumber>981</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="64" parent="39" name="height">
+    <column id="71" parent="40" name="height">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>981</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="65" parent="39" name="size">
+    <column id="72" parent="40" name="size">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>981</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="66" parent="39" name="information_pkey">
+    <index id="73" parent="40" name="information_pkey">
       <ObjectId>17251</ObjectId>
       <StateNumber>981</StateNumber>
       <ColNames>id</ColNames>
@@ -1231,51 +1279,51 @@ sequence|table|17245|17247|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="67" parent="39" name="information_pkey">
+    <key id="74" parent="40" name="information_pkey">
       <ObjectId>17252</ObjectId>
       <StateNumber>981</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>information_pkey</UnderlyingIndexName>
     </key>
-    <column id="68" parent="40" name="id">
+    <column id="75" parent="41" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>982</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="69" parent="40" name="category">
+    <column id="76" parent="41" name="category">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="40" name="edition_location">
+    <column id="77" parent="41" name="edition_location">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="71" parent="40" name="edition_name">
+    <column id="78" parent="41" name="edition_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="72" parent="40" name="release_date">
+    <column id="79" parent="41" name="release_date">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <StateNumber>982</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="73" parent="40" name="title">
+    <column id="80" parent="41" name="title">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="74" parent="40" name="manga_pkey">
+    <index id="81" parent="41" name="manga_pkey">
       <ObjectId>17259</ObjectId>
       <StateNumber>982</StateNumber>
       <ColNames>id</ColNames>
@@ -1285,12 +1333,61 @@ sequence|table|17245|17247|1
       <ClassIds>3124</ClassIds>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="75" parent="40" name="manga_pkey">
+    <key id="82" parent="41" name="manga_pkey">
       <ObjectId>17260</ObjectId>
       <StateNumber>982</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>manga_pkey</UnderlyingIndexName>
+    </key>
+    <column id="83" parent="42" name="product_type">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1013</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="84" parent="42" name="id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1013</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="85" parent="42" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1013</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="86" parent="42" name="color">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1013</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="87" parent="42" name="author">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1013</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="88" parent="42" name="product_pkey">
+      <ObjectId>17300</ObjectId>
+      <StateNumber>1013</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <CollationIds>0</CollationIds>
+      <ClassIds>3124</ClassIds>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="89" parent="42" name="product_pkey">
+      <ObjectId>17301</ObjectId>
+      <StateNumber>1013</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>product_pkey</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

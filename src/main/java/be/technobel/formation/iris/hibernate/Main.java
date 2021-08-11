@@ -63,8 +63,10 @@ public class Main {
 //        authorRepository.addManga(2L, mangaRepository.findOneById(1L));
 //        authorRepository.addManga(1L, mangaRepository.findOneById(1L));
 
-        mangaRepository.findAll().forEach(System.out::println);
+//        mangaRepository.findAll().forEach(System.out::println);
 
-        authorRepository.findAll().forEach(System.out::println);
+//        authorRepository.findAll().forEach(System.out::println);
+
+        mangaRepository.findAllDTO().forEach(System.out::println);
     }
 }
