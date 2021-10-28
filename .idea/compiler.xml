@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Technobel_Iris_JPA_Hibernate" />
+        <module name="technobel_iris_hibernate" />
       </profile>
     </annotationProcessing>
   </component>

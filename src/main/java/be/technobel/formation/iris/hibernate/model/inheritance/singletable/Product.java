@@ -13,6 +13,7 @@ import javax.persistence.*;
 public class Product {
 
     @Id
+
     private Long id;
     private String name;
 
